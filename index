@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lana Florist</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f2f2;
+      color: #222;
+    }
+
+    section {
+      padding: 80px 6vw;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('1.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 600px;
+    }
+
+    .hero img {
+      width: 160px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* FLOWERS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .card-buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 30px;
+      font-size: 12px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      color: #222;
+    }
+
+    /* EVENTS */
+    .carousel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* CONTACTS */
+    .contacts {
+      background: #e9e9e9;
+      text-align: center;
+    }
+
+    .contacts p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .contacts a {
+      display: inline-block;
+      margin: 8px 12px;
+      color: #000;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      h2 { font-size: 32px; }
+      .hero h1 { font-size: 42px; }
+      .carousel { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img src="lana florist logo white.png" alt="Lana Florist" />
+      <h1>Bloom & Love</h1>
+      <p>Flowers created with care, taste and emotion</p>
+      <a href="#flowers" class="btn">Order</a>
+    </div>
+  </section>
+
+  <section id="flowers">
+    <h2>Flowers</h2>
+    <div class="grid">
+      <div class="card"><img src="1.png"><div class="card-content"><h3>Soft Garden</h3><p>Pastel seasonal bouquet</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="2.png"><div class="card-content"><h3>White Wedding</h3><p>Elegant white roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="3.jpeg"><div class="card-content"><h3>Scarlet Mood</h3><p>Bold red roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="4.png"><div class="card-content"><h3>Blush Peonies</h3><p>Soft pink peonies</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="5.png"><div class="card-content"><h3>Ivory Roses</h3><p>Classic ivory tones</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="6.png"><div class="card-content"><h3>Pink Classic</h3><p>Timeless romance</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Events</h2>
+    <div class="carousel">
+      <img src="8.jpg" />
+      <img src="9.jpg" />
+      <img src="10.jpg" />
+    </div>
+  </section>
+
+  <section class="contacts">
+    <h2>Contacts</h2>
+    <p>Phone: +1 000 000 0000</p>
+    <a href="#">Instagram</a>
+    <a href="#">WhatsApp</a>
+  </section>
+
+</body>
+</html>
