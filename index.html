@@ -10,112 +10,126 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f2f2f2;
-      color: #222;
+    :root{
+      --bg: #f2f2f2;
+      --text: #222;
+      --card: #ffffff;
+      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+      --radius: 20px;
     }
 
-    section {
-      padding: 80px 6vw;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
+
+    section { padding: 80px 6vw; }
 
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 42px;
       margin-bottom: 40px;
+      letter-spacing: 0.2px;
     }
 
     /* HERO */
     .hero {
       height: 100vh;
-      background: url('1.png') center/cover no-repeat;
+      background: url('cover.jpg') center/cover no-repeat;
+      background-attachment: scroll; /* no zoom/parallax */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.22);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       color: #fff;
-      max-width: 600px;
+      max-width: 740px;
+      padding: 0 14px;
     }
 
     .hero img {
       width: 160px;
       margin-bottom: 24px;
+      filter: drop-shadow(0 18px 30px rgba(0,0,0,0.18));
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 56px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero p {
       font-size: 18px;
       margin-bottom: 32px;
-      opacity: 0.9;
+      opacity: 0.92;
     }
 
     .btn {
       display: inline-block;
       padding: 14px 36px;
       border-radius: 40px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       color: #000;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 1px;
       text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.35);
+      transition: transform 160ms ease, background 160ms ease;
     }
+
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.98); }
 
     /* FLOWERS */
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr); /* 4 in a row on desktop */
       gap: 32px;
     }
 
     .card {
-      background: #fff;
-      border-radius: 20px;
+      background: var(--card);
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
     }
 
     .card img {
       width: 100%;
-      height: 280px;
+      height: 260px;
       object-fit: cover;
     }
 
-    .card-content {
-      padding: 20px;
-    }
+    .card-content { padding: 20px; }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
     .card p {
-      font-size: 14px;
-      opacity: 0.7;
+      font-size: 13px;
+      opacity: 0.75;
       margin-bottom: 18px;
+      line-height: 1.35;
     }
 
     .card-buttons {
@@ -132,7 +146,10 @@
       text-decoration: none;
       border: 1px solid #ddd;
       color: #222;
+      transition: transform 160ms ease, background 160ms ease;
     }
+
+    .card-buttons a:hover { transform: translateY(-1px); background: rgba(0,0,0,0.03); }
 
     /* EVENTS */
     .carousel {
@@ -145,7 +162,8 @@
       width: 100%;
       height: 320px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     /* CONTACTS */
@@ -165,7 +183,11 @@
       color: #000;
       text-decoration: none;
       font-size: 16px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 160ms ease;
     }
+
+    .contacts a:hover { border-color: rgba(0,0,0,0.35); }
 
     @media (max-width: 1024px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
@@ -177,43 +199,52 @@
       .grid { grid-template-columns: 1fr; }
       .carousel { grid-template-columns: 1fr; }
     }
-      .hero h1 { font-size: 42px; }
-      .carousel { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <img src="lana florist logo white.png" alt="Lana Florist" />
-      <h1>Bloom & Love</h1>
-      <p>Flowers created with care, taste and emotion</p>
+      <h1>Bloom &amp; Love</h1>
+      <p>Timeless beauty in bloom</p>
       <a href="#flowers" class="btn">Order</a>
     </div>
   </section>
 
+  <!-- FLOWERS -->
   <section id="flowers">
     <h2>Flowers</h2>
     <div class="grid">
-      <div class="card"><img src="1.png"><div class="card-content"><h3>Soft Garden</h3><p>Pastel seasonal bouquet</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
-      <div class="card"><img src="2.png"><div class="card-content"><h3>White Wedding</h3><p>Elegant white roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
-      <div class="card"><img src="3.jpeg"><div class="card-content"><h3>Scarlet Mood</h3><p>Bold red roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
-      <div class="card"><img src="4.png"><div class="card-content"><h3>Blush Peonies</h3><p>Soft pink peonies</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
-      <div class="card"><img src="5.png"><div class="card-content"><h3>Ivory Roses</h3><p>Classic ivory tones</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
-      <div class="card"><img src="6.png"><div class="card-content"><h3>Pink Classic</h3><p>Timeless romance</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="1.png" alt="Soft Garden"><div class="card-content"><h3>Soft Garden</h3><p>Pastel seasonal bouquet</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="2.png" alt="White Wedding"><div class="card-content"><h3>White Wedding</h3><p>Elegant white roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="3.png" alt="Scarlet Mood"><div class="card-content"><h3>Scarlet Mood</h3><p>Bold red roses</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="4.png" alt="Blush Peonies"><div class="card-content"><h3>Blush Peonies</h3><p>Soft pink peonies</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+
+      <div class="card"><img src="5.png" alt="Ivory Roses"><div class="card-content"><h3>Ivory Roses</h3><p>Classic ivory tones</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="6.png" alt="Pink Classic"><div class="card-content"><h3>Pink Classic</h3><p>Timeless romance</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="7.jpg" alt="Blue Whisper"><div class="card-content"><h3>Blue Whisper</h3><p>Airy blues &amp; cream</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="8.jpg" alt="Spring Mix"><div class="card-content"><h3>Spring Mix</h3><p>Fresh and light palette</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+
+      <div class="card"><img src="9.jpg" alt="White Elegance"><div class="card-content"><h3>White Elegance</h3><p>Minimal white composition</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="10.jpg" alt="Vase Arrangement"><div class="card-content"><h3>Vase Arrangement</h3><p>Statement florals in a vase</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="11.PNG" alt="Peonies Deluxe"><div class="card-content"><h3>Peonies Deluxe</h3><p>Full peony bouquet</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
+      <div class="card"><img src="12.png" alt="Your own design"><div class="card-content"><h3>Your Own Design</h3><p>Tell us the mood, colors and budget — we’ll create it</p><div class="card-buttons"><a href="#">Order this</a><a href="#">Your own design</a></div></div></div>
     </div>
   </section>
 
+  <!-- EVENTS -->
   <section>
     <h2>Events</h2>
     <div class="carousel">
-      <img src="8.jpg" />
-      <img src="9.jpg" />
-      <img src="10.jpg" />
+      <img src="event1.jpg" alt="Event 1" />
+      <img src="event2.jpg" alt="Event 2" />
+      <img src="event3.jpg" alt="Event 3" />
     </div>
   </section>
 
+  <!-- CONTACTS -->
   <section class="contacts">
     <h2>Contacts</h2>
     <p>Phone: +1 000 000 0000</p>
